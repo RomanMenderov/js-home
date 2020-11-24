@@ -68,9 +68,8 @@ export function showMonthInConsole(usersNumber) {
   ];
   if (usersNumber) {
     return months[usersNumber];
-  } 
-    return false;
-  
+  }
+  return false;
 }
 
 console.log(showMonthInConsole(getUsersData()));

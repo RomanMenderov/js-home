@@ -25,7 +25,7 @@ describe("test 2st task", () => {
   });
 
   test("it should show number or false", () => {
-    const values = ["10","25"];
+    const values = ["10", "25"];
     jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
 
     expect(getUsersData()).toEqual(9);
@@ -33,7 +33,7 @@ describe("test 2st task", () => {
   });
 
   test("it should show if circle in square", () => {
-    expect(isCircleInSquare(10,25)).toEqual("Круг поместится в квадрат");
-    expect(isCircleInSquare(25,10)).toEqual("Круг не поместится в квадрат");
+    expect(isCircleInSquare(10, 25)).toEqual("Круг поместится в квадрат");
+    expect(isCircleInSquare(25, 10)).toEqual("Круг не поместится в квадрат");
   });
 });
