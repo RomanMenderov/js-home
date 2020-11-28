@@ -6,6 +6,14 @@ import {
 } from "./homework_10";
 
 describe("test 10th task", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("it should check if string is a date", () => {
     expect(isStringDate("01-12-1248")).toEqual(true);
     expect(isStringDate("48.15.50")).toEqual(false);
@@ -20,8 +28,14 @@ describe("test 10th task", () => {
   });
 
   test("it should check if our function do analize", () => {
-    expect(checkUserInput("test@test.me")).toEqual("Вы ввели Email");
-    expect(checkUserInput("89012233222")).toEqual("Вы ввели мобильный телефон");
-    expect(checkUserInput("rest.test.ru")).toEqual("Я не знаю что это :(");
+    const values = ["test@test.me", "89012233222", "rest.test.ru"];
+    jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
+
+    checkUserInput();
+    expect(console.log.mock.calls[0][0]).toEqual("Вы ввели Email");
+    checkUserInput();
+    expect(console.log.mock.calls[1][0]).toEqual("Вы ввели мобильный телефон");
+    checkUserInput();
+    expect(console.log.mock.calls[2][0]).toEqual("Я не знаю что это :(");
   });
 });

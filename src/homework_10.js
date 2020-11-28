@@ -25,16 +25,17 @@ export function isStringEmail(string) {
   return /^[+a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,10}$/i.test(string);
 }
 
-export function checkUserInput(string) {
+export function checkUserInput() {
+  const string = prompt("Введите чего-нибудь");
+  let result = "Я не знаю что это :(";
   if (isStringEmail(string)) {
-    return "Вы ввели Email";
+    result = "Вы ввели Email";
   }
   if (isStringDate(string)) {
-    return "Вы ввели дату";
+    result = "Вы ввели дату";
   }
   if (isStringRuMobilePhone(string)) {
-    return "Вы ввели мобильный телефон";
+    result = "Вы ввели мобильный телефон";
   }
-  return "Я не знаю что это :(";
+  return console.log(result);
 }
-console.log(checkUserInput(prompt("Введите дату, емейл или телефон")));
