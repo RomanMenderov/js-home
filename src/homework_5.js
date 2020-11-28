@@ -16,10 +16,10 @@ export function sumOfArray(array) {
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
-  return sum;
+  return console.log(sum);
 }
-const myArray = createNewArrayOfNumbers();
-console.log(sumOfArray(myArray));
+// const myArray = createNewArrayOfNumbers();
+// console.log(sumOfArray(myArray));
 
 /* *
 2.Создайте новый массив на основе исходного, в
@@ -37,7 +37,7 @@ export function creaneNewDoubleArray(array) {
   return newArray;
 }
 
-const newDoubleArray = creaneNewDoubleArray(myArray);
+// const newDoubleArray = creaneNewDoubleArray(myArray);
 
 /* *
 3.*Найдите и выведите в консоль наибольший и
@@ -45,13 +45,13 @@ const newDoubleArray = creaneNewDoubleArray(myArray);
  */
 
 export function showMinMaxElement(numberArray) {
-  return numberArray.sort(function (a, b) {
+  numberArray.sort(function (a, b) {
     return a - b;
   });
-  // console.log('Min = ' + numberArray[0]);
-  // console.log('Max = ' + numberArray[numberArray.length-1]);
+
+  return console.log(
+    `Min = ${numberArray[0]}, Max = ${numberArray[numberArray.length - 1]}`
+  );
 }
 
-const sortedArray = showMinMaxElement(newDoubleArray);
-console.log(`Min = ${sortedArray[0]}`);
-console.log(`Max = ${sortedArray[sortedArray.length - 1]}`);
+// const sortedArray = showMinMaxElement(newDoubleArray);
