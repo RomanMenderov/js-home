@@ -47,7 +47,9 @@ export function showCircleParams() {
   const R = getUsersData();
   const circleLength = 2 * Math.PI * R;
   const circleArea = Math.PI * R ** 2;
-  return `Параметры круга с R = ${R} , S = ${circleArea}, L = ${circleLength}`;
+  return console.log(
+    `Параметры круга с R = ${R} , S = ${circleArea}, L = ${circleLength}`
+  );
 }
 
 /**

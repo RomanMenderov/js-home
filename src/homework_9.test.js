@@ -6,6 +6,14 @@ import {
 } from "./homework_9";
 
 describe("test 9th task", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("it should check if obj is rect triangle", () => {
     let triangle = { a: 3, b: 4, c: 5 };
     expect(isTriangleRectangular(triangle)).toEqual(true);
@@ -31,8 +39,9 @@ describe("test 9th task", () => {
   test("it should show circle params", () => {
     const values = ["1", "15", "zero", "2"];
     jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
+    showCircleParams();
 
-    expect(showCircleParams()).toEqual(
+    expect(console.log.mock.calls[0][0]).toEqual(
       `Параметры круга с R = 1 , S = 3.141592653589793, L = 6.283185307179586`
     );
   });
