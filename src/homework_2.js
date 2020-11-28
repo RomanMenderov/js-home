@@ -4,19 +4,15 @@
  * 
  */
 
-const x = 15;
-const y = 25;
-
 export function showMaxNumber(a, b) {
   if (a > b) {
-    return a;
+    return console.log(a);
   }
   if (a < b) {
-    return b;
+    return console.log(b);
   }
-  return `Числа равны ${a}`;
+  return console.log(`Числа равны ${a}`);
 }
-console.log(showMaxNumber(x, y));
 
 /**
  * 2.Запросить у пользователя ввод числа от 1 до 12.
@@ -51,7 +47,7 @@ export function getUsersData() {
   return false;
 }
 
-export function showMonthInConsole(usersNumber) {
+export function showMonthInConsole(usersNumber = getUsersData()) {
   const months = [
     "январь",
     "февраль",
@@ -67,12 +63,12 @@ export function showMonthInConsole(usersNumber) {
     "декабрь",
   ];
   if (usersNumber) {
-    return months[usersNumber];
+    return console.log(months[usersNumber]);
   }
   return false;
 }
 
-console.log(showMonthInConsole(getUsersData()));
+// console.log(showMonthInConsole(getUsersData()));
 
 /**
  *3*В переменных circle и square хранятся площади круга
@@ -80,9 +76,6 @@ console.log(showMonthInConsole(getUsersData()));
 которая определяет, поместится ли круг в квадрат.
  * 
  */
-
-const myCircle = 25;
-const mySquare = 25;
 
 export function isCircleInSquare(circle, square) {
   const circleParams = {
@@ -99,8 +92,8 @@ export function isCircleInSquare(circle, square) {
     circleParams.area < squareParams.area &&
     circleParams.diameter <= squareParams.side
   ) {
-    return "Круг поместится в квадрат";
+    return console.log("Круг поместится в квадрат");
   }
-  return "Круг не поместится в квадрат";
+  return console.log("Круг не поместится в квадрат");
 }
-console.log(isCircleInSquare(myCircle, mySquare));
+// console.log(isCircleInSquare(myCircle, mySquare));

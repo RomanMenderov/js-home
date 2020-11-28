@@ -7,10 +7,21 @@ import {
 } from "./homework_2";
 
 describe("test 2st task", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("it should show max number", () => {
-    expect(showMaxNumber(1, 2)).toEqual(2);
-    expect(showMaxNumber(2, -2)).toEqual(2);
-    expect(showMaxNumber(2, 2)).toEqual("Числа равны 2");
+    showMaxNumber(1, 2);
+    expect(console.log.mock.calls[0][0]).toEqual(2);
+    showMaxNumber(3, -2);
+    expect(console.log.mock.calls[1][0]).toEqual(3);
+    showMaxNumber(2, 2);
+    expect(console.log.mock.calls[2][0]).toEqual("Числа равны 2");
   });
 
   test("it should show that number is from 1 to 12", () => {
@@ -20,8 +31,13 @@ describe("test 2st task", () => {
   });
 
   test("it should show name of month", () => {
-    expect(showMonthInConsole(1)).toEqual("февраль");
-    expect(showMonthInConsole(13)).toEqual(undefined);
+    const values = ["2", "5"];
+    jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
+
+    showMonthInConsole();
+    expect(console.log.mock.calls[0][0]).toEqual("февраль");
+    showMonthInConsole();
+    expect(console.log.mock.calls[1][0]).toEqual("май");
   });
 
   test("it should show number or false", () => {
@@ -33,7 +49,11 @@ describe("test 2st task", () => {
   });
 
   test("it should show if circle in square", () => {
-    expect(isCircleInSquare(10, 25)).toEqual("Круг поместится в квадрат");
-    expect(isCircleInSquare(25, 10)).toEqual("Круг не поместится в квадрат");
+    isCircleInSquare(10, 25);
+    expect(console.log.mock.calls[0][0]).toEqual("Круг поместится в квадрат");
+    isCircleInSquare(25, 10);
+    expect(console.log.mock.calls[1][0]).toEqual(
+      "Круг не поместится в квадрат"
+    );
   });
 });
