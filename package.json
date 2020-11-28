@@ -1,7 +1,6 @@
 {
   "name": "js-home",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -42,5 +41,7 @@
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
-  }
+  },
+  "dependencies": {},
+  "description": ""
 }
