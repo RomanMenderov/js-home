@@ -7,13 +7,24 @@ import {
 } from "./homework_3";
 
 describe("test 3st task", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("it should show summ", () => {
-    expect(showSumm(1, 2)).toEqual(3);
-    expect(showSumm(2, 5)).toEqual(14);
+    showSumm(1, 2);
+    expect(console.log.mock.calls[0][0]).toEqual(3);
+    showSumm(50, 100);
+    expect(console.log.mock.calls[1][0]).toEqual(3825);
   });
 
   test("it should show multiply table", () => {
-    expect(showMultiplyTable(1)).toEqual(
+    showMultiplyTable(1);
+    expect(console.log.mock.calls[0][0]).toEqual(
       `1 X 1 = 1\n1 X 2 = 2\n1 X 3 = 3\n1 X 4 = 4\n1 X 5 = 5
 1 X 6 = 6\n1 X 7 = 7\n1 X 8 = 8\n1 X 9 = 9\n1 X 10 = 10\n`
     );
@@ -34,8 +45,12 @@ describe("test 3st task", () => {
   });
 
   test("it should show  odd average", () => {
-    expect(showOddAverage(1)).toEqual(1);
-    expect(showOddAverage(3)).toEqual(2);
+    const values = ["1", "3"];
+    jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
+    showOddAverage();
+    expect(console.log.mock.calls[0][0]).toEqual(1);
+    showOddAverage();
+    expect(console.log.mock.calls[1][0]).toEqual(2);
     expect(showOddAverage(0)).toEqual(false);
   });
 });

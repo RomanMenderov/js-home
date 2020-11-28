@@ -11,10 +11,10 @@ export function showSumm(start, finish) {
   for (let i = start; i <= finish; i++) {
     summ += i;
   }
-  return summ;
+  return console.log(summ);
 }
 
-console.log(showSumm(50, 100));
+// console.log(showSumm(50, 100));
 
 /**
  *
@@ -29,10 +29,10 @@ export function showMultiplyTable(number) {
     const string = `${number} X ${i} = ${i * number}\n`;
     resultTable += string;
   }
-  return resultTable;
+  return console.log(resultTable);
 }
 
-console.log(showMultiplyTable(7));
+// console.log(showMultiplyTable(7));
 
 /**
  * 
@@ -65,7 +65,8 @@ export function getUsersData() {
   return false;
 }
 
-export function showOddAverage(usersNumber) {
+export function showOddAverage() {
+  const usersNumber = getUsersData();
   if (usersNumber) {
     let oddSumm = 0;
     let oddCount = 0;
@@ -73,9 +74,9 @@ export function showOddAverage(usersNumber) {
       oddSumm += i;
       oddCount += 1;
     }
-    return oddSumm / oddCount;
+    return console.log(oddSumm / oddCount);
   }
   return false;
 }
 
-console.log(showOddAverage(getUsersData()));
+// console.log(showOddAverage(getUsersData()));
