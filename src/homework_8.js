@@ -46,7 +46,7 @@ export function getTypeOfDay(textInput) {
     "Пятница",
     "Суббота",
   ];
-  return weekDaysArray[new Date(myDate).getDay()];
+  return console.log(weekDaysArray[new Date(myDate).getDay()]);
 }
 
 // console.log(getTypeOfDay(getUsersData()));
@@ -95,10 +95,10 @@ export function showWhoIsYonger(first, second) {
   const secondMS = getDate(second);
 
   if (firstMS > secondMS) {
-    return first;
+    return console.log(first);
   }
   if (firstMS < secondMS) {
-    return second;
+    return console.log(second);
   }
-  return second;
+  return console.log(second);
 }
