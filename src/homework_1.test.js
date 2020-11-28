@@ -6,11 +6,21 @@ import {
 } from "./homework_1";
 
 describe("test 1st task", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "log");
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("it should show a multiply", () => {
-    expect(showProduct(1, 2)).toEqual(2);
+    showProduct(1, 2);
+    expect(console.log.mock.calls[0][0]).toEqual(2);
   });
   test("it should show a total length of strings", () => {
-    expect(showTotalStringLength("три", "два")).toEqual(6);
+    showTotalStringLength("три", "два");
+    expect(console.log.mock.calls[0][0]).toEqual(6);
   });
 
   test("it should validate user input as number", () => {
@@ -22,9 +32,9 @@ describe("test 1st task", () => {
   test("it should get summ of 3 numbers", () => {
     const values = ["300", "-200"];
     jest.spyOn(window, "prompt").mockImplementation(() => values.shift());
-    jest.spyOn(window, "prompt");
 
-    expect(showSummInConsole()).toEqual(3);
+    showSummInConsole();
+    expect(console.log.mock.calls[0][0]).toEqual(3);
     expect(checkCorrectData()).toBe(false);
   });
 });

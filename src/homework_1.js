@@ -5,16 +5,12 @@
  * 
  */
 
-const x = 5;
-const y = 12;
-
 export function showProduct(a, b) {
   if (typeof a === "number" && typeof b === "number") {
-    return a * b;
+    return console.log(a * b);
   }
-  return "Проверьте что переменные - числа";
+  return console.log("Проверьте что переменные - числа");
 }
-console.log(showProduct(x, y));
 
 /**
  * 
@@ -24,16 +20,13 @@ console.log(showProduct(x, y));
  *  
  */
 
-const firstStr = "long String";
-const secondStr = "shortString";
-
 export function showTotalStringLength(firstString, secondString) {
   if (typeof firstString === "string" && typeof secondString === "string") {
-    return firstString.length + secondString.length;
+    return console.log(firstString.length + secondString.length);
   }
-  return "Проверьте что переменные - строки";
+  return console.log("Проверьте что переменные - строки");
 }
-console.log(showTotalStringLength(firstStr, secondStr));
+// console.log(showTotalStringLength(firstStr, secondStr));
 
 /**
  * 
@@ -64,7 +57,7 @@ export function getUsersData() {
 export function showSummInConsole() {
   const usersNumber = prompt("Введите трехзначное число");
   if (!checkCorrectData(usersNumber)) {
-    return "Это не трехзначное число";
+    return console.log("Это не трехзначное число");
   }
   let usersSum;
   const numberArr = usersNumber.split("");
@@ -75,7 +68,7 @@ export function showSummInConsole() {
       usersSum += +numberArr[i];
     }
   }
-  return usersSum;
+  return console.log(usersSum);
 }
 
-console.log(showSummInConsole());
+// console.log(showSummInConsole());
